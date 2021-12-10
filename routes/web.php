@@ -35,3 +35,5 @@ route::get('empleado/search/{busqueda}', [EmpleadoController::class, 'search']);
 Route::fallback(function(){
     return view('admin.404');
 });
+Route::post('puesto/transferencia/{id}', [PuestoController::class, 'transferencia']);
+Route::post('departamento/transferencia/{id}', [DepartamentoController::class, 'transferencia']);

@@ -88,7 +88,7 @@
             <td>{{ $empleado->nombre }}</td>
             <td>{{ $empleado->apellidos }}</td>
             @if (isset($empleado->departamento->nombre))
-            <td>{{ $empleado->departamento->nombre }}</td>
+            <td><a href="{{ url('departamento/'. $empleado->departamento->id) }}">{{ $empleado->departamento->nombre }} </a></td>
             @else
               <td></td>
             @endif

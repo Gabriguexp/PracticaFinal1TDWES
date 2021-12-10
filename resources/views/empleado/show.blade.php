@@ -47,12 +47,12 @@
             <td>{{ $empleado->telefono }} </td>
             <td>{{ date('d-m-Y', strtotime($empleado->fechacontrato)) }}</td>
             @if (isset($empleado->puesto->nombre))
-              <td>{{ $empleado->puesto->nombre }}</td>
+              <td><a href="{{ url('puesto/'.$empleado->puesto->id) }}">{{ $empleado->puesto->nombre }}</a></td>
             @else
               <td></td>
             @endif
             @if (isset($empleado->departamento->nombre))
-              <td>{{ $empleado->departamento->nombre }}</td>
+              <td><a href="{{ url('departamento/'.$empleado->departamento->id) }}">{{ $empleado->departamento->nombre }}</a></td>
             @else
               <td></td>
             @endif

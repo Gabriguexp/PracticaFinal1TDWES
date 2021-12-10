@@ -63,7 +63,9 @@ class PuestoController extends Controller{
         $data = [];
         $work = Puesto::find($id);
         if($work){
+            $data['puestos'] = Puesto::All();
             $data['puesto'] = $work;
+            $data['empleados'] = Empleado::where('idpuesto', $id)->get();
             return view('puesto.show', $data);
         } else{
             $data['message'] = "No se ha podido encontrar el puesto";
@@ -184,5 +186,31 @@ class PuestoController extends Controller{
         return view('puesto.search', $data);
     }
     
+    function transferencia($id, Request $request){
+        $data = [];
+        try{
+            $inputs = $request->all();
+            
+            $empleados = [];
+            foreach($inputs as $index=>$value){
+                if ($value == 'on'){
+                    $empleados[] = Empleado::find($index);
+                }
+            }
+            foreach($empleados as $empleado){
+                $empleado->idpuesto = $inputs['destino'];
+                $result = $empleado->save();
+            }
+            $data['type'] = 'success';
+            $data['message'] = 'Transferencia realizada';
+        } catch(\Exception $e){
+            $data['type'] = 'danger';
+            $data['message'] = 'Ha ocurrido un error con la transferencia de puestos';
+            return back()->with($data);
+
+        }
+        return redirect('puesto')->with($data);
+        
+    }
 
 }

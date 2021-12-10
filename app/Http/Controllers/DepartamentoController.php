@@ -67,6 +67,8 @@ class DepartamentoController extends Controller
         $data = [];
         $department = Departamento::find($id);
         if($department){
+            $data['empleados'] = Empleado::where('iddepartamento', $department->id)->get();
+            $data['departamentos'] = Departamento::All();
             $data['department'] = $department;
             return view('departamento.show', $data);
         } else{
@@ -200,4 +202,31 @@ class DepartamentoController extends Controller
         $data['order'] =  $search['order'];
         return view('departamento.search', $data);
     }
+
+    function transferencia($id, Request $request){
+        $data = [];
+        try{
+            $inputs = $request->all();
+            //dd($inputs['destino']);
+            $empleados = [];
+            foreach($inputs as $index=>$value){
+                if ($value == 'on'){
+                    $empleados[] = Empleado::find($index);
+                }
+            }
+            foreach($empleados as $empleado){
+                $empleado->iddepartamento = $inputs['destino'];
+                $result = $empleado->save();
+            }
+            $data['type'] = 'success';
+            $data['message'] = 'Transferencia de empleados realizada';
+        } catch(\Exception $e){
+            $data['type'] = 'danger';
+            $data['message'] = 'Ha ocurrido un error con la transferencia de departamentos';
+            return back()->with($data);
+        }
+        return redirect('departamento')->with($data);
+            //dd([$id, $request->all(), $empleados]);
+    }
+
 }
