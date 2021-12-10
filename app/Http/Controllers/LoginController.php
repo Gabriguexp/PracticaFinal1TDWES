@@ -21,6 +21,7 @@ class LoginController extends Controller{
         $data = [];
         $user = $request->input('user');
         $pass = $request->input('password');
+        
 
         if($user == "admin" && sha1($pass) == "f0cd2d230eb3d9dcaf0c8c198f75ca0b53193c22"){
             $request->session()->put('token','ASDF');

@@ -21,10 +21,10 @@ class CreateEmpleadoRequest extends FormRequest
      *
      * @return array
      */
-         function messages(){ //TODO
+         function messages(){
         $gte = "El campo :attribute debe ser mayor o igual que :value";
         $integer = "El campo :attribute ha de ser un numero entero";
-        $lte = 'El campo :attribute debe ser menor o igual que :lte';
+        $lte = 'El campo :attribute debe ser menor o igual que :value';
         $max = 'El campo :attribute no puede tener más de :max caracteres';
         $min = 'El campo :attribute no puede tener menos de :min caracteres';
         $numeric = 'El campo :attribute debe ser numerico';

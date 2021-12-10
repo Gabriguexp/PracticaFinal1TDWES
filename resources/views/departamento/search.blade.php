@@ -2,7 +2,7 @@
 
 @section('content')
 <h2>Departamentos</h2>
-<a href="{{ url('departamentos') }}">Ver todos</a>
+<a href="{{ url('departamento') }}">Ver todos</a>
 @if(Session::has('message'))
     <div class="alert alert-{{session()->get('type')}}" role="alert">
         {{session()->get('message')}}

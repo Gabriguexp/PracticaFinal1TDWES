@@ -55,7 +55,7 @@ class CreatePuestoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|min:10|max:50|unique:puesto,nombre',
+            'nombre' => 'required|min:5|max:50|unique:puesto,nombre',
             'salariominimo' => 'required|gte:1000|numeric',
             'salariomaximo' => 'required|gte:salariominimo|numeric'
         ];

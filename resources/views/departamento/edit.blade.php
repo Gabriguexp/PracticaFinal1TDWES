@@ -29,14 +29,14 @@
         </div>
         <div class="form-group">
         <label for="idempleadojefe">Jefe</label>
+        
         <select class="form-control" name="idempleadojefe">
             @foreach($workers as $worker)
-                @if($worker->id == $department->jefe->nombre)
-                <option value="{{ $worker->id }}"selected>{{ $worker->nombre }}3</option>
+                @if(isset($department->jefe->nombre) && $worker->id == $department->jefe->id)
+                <option value="{{ $worker->id }}"selected>{{ $worker->nombre }}</option>
                 @else
                 <option value="{{ $worker->id }}">{{ $worker->nombre }}</option>
                 @endif
-                
             @endforeach
         </select>
     </div>
