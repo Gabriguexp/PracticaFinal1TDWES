@@ -148,6 +148,7 @@
                         <!--</div>-->
                         <div class="info">
                             <a href="#" class="d-block">Admin</a>
+                            <a href="{{ url('logout') }}" class="d-block">Cerrar Sesión</a>
                         </div>
                     </div>
                     <div class="form-inline">

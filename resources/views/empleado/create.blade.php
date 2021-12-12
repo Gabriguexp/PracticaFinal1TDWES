@@ -44,6 +44,7 @@
     <div class="form-group">
         <label for="idpuesto">Puesto</label>
         <select value="{{ old('idpuesto') }}"  class="form-control" name="idpuesto">
+            <option value=""></option>
             @foreach ($puestos as $puesto)
                 <option value="{{ $puesto->id }}">{{ $puesto->nombre }}</option>
             @endforeach
@@ -52,6 +53,7 @@
     <div class="form-group">
         <label for="iddepartamento">Departamento</label>
         <select value="{{ old('iddepartamento') }}"  class="form-control" name="iddepartamento">
+            <option value=""></option>
             @foreach ($departamentos as $departamento)
                 <option value="{{ $departamento->id }}">{{ $departamento->nombre }}</option>
             @endforeach

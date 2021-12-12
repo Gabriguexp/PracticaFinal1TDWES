@@ -29,6 +29,7 @@
     <div class="form-group">
         <label for="idempleadojefe">Jefe</label>    
         <select value="{{ old('idempleadojefe') }}"class="form-control" name="idempleadojefe">
+                <option value=""></option>
             @foreach($workers as $worker)
                 <option value="{{ $worker->id }}">{{ $worker->nombre }}</option>
             @endforeach

@@ -43,7 +43,8 @@
     <div class="form-group">
     <label for="idpuesto">Puesto</label>
         <select class="form-control"  name="idpuesto">
-            Añadir que se marque el suyo
+            <option value=""></option>
+            
             @foreach ($puestos as $puesto)
                 @if ($puesto->id == $empleado->idpuesto)
                     <option value="{{ $puesto->id }}" selected>{{ $puesto->nombre }}</option>
@@ -56,7 +57,7 @@
     <div class="form-group">
     <label for="iddepartamento">Departamento</label>
         <select class="form-control" name="iddepartamento">
-            
+        <option value=""></option>
             @foreach ($departamentos as $departamento)
                 @if ($departamento->id == $empleado->iddepartamento)
                     <option value="{{ $departamento->id }}"selected>{{ $departamento->nombre }}</option>

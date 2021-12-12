@@ -29,6 +29,7 @@ Route::resource('empleado', EmpleadoController::class)->middleware('sesion');
 Route::resource('puesto', PuestoController::class)->middleware('sesion');
 Route::get('login', [LoginController::class,'showLogin']);
 Route::post('login', [LoginController::class, 'login']);
+Route::get('logout', [LoginController::class, 'logout']);
 route::get('puesto/search/{busqueda}', [PuestoController::class, 'search']);
 route::get('departamento/search/{busqueda}', [DepartamentoController::class, 'search']);
 route::get('empleado/search/{busqueda}', [EmpleadoController::class, 'search']);

@@ -32,4 +32,10 @@ class LoginController extends Controller{
             return back()->with($data);
         }
     }
+    function logout(Request $request){
+        $request->session()->flush();
+        $data['type'] = "success";
+        $data['message'] = "Se ha cerrado la sesión";
+        return redirect('login')->with($data);
+    }
 }

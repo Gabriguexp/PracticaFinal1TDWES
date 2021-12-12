@@ -31,6 +31,7 @@
         <label for="idempleadojefe">Jefe</label>
         
         <select class="form-control" name="idempleadojefe">
+            <option value=""></option>
             @foreach($workers as $worker)
                 @if(isset($department->jefe->nombre) && $worker->id == $department->jefe->id)
                 <option value="{{ $worker->id }}"selected>{{ $worker->nombre }}</option>
